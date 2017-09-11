@@ -2,7 +2,7 @@
 
 
 /* 1.5.1 文件复制 */
-/*
+
 #include <stdio.h>
 
 int main()
@@ -24,11 +24,11 @@ int main()
     while ((c = getchar()) != EOF )
         putchar(c);
 }
-*/
+
 
 
 /* 1.5.2 字符计数 */
-/*
+
 #include <stdio.h>
 
 int main()
@@ -51,7 +51,7 @@ int main()
         ;
     printf("%0.f\n", nc);
 }
-*/
+
 
 
 /* 1.5.3 行计数 */
@@ -67,3 +67,32 @@ int main()
             ++nl;
     printf("%d\n",nl);
 }
+
+
+
+/* 单词计数 */
+#include <stdio.h>
+
+#define IN 1
+#define OUT 0
+
+int main()
+{
+    int c, nl, nw, nc, state;
+    
+    state = OUT;
+    nl = nw = nc = 0;
+    while((c = getchar()) != EOF) {
+        ++nc;
+        if (c == '\n')
+            ++nl;
+        if (c == ' ' || c == '\n' || c == '\t')
+            state = OUT;
+        else if (state == OUT) {
+            state = IN;
+            ++nw;
+        }
+    }
+    printf("%d %d %d\n", nl, nw, nc);
+}
+
