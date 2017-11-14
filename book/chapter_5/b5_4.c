@@ -1,4 +1,5 @@
 /*　5.4 地址算术运算　*/
+/* alloc 和 afree 函数　*/
 
 #define ALLOCSIZE 10000
 
